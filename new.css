@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap');
+
+/* ===================================================
+   🌸 KAWAII STICKER THEME - TODO LIST 🌸
+   =================================================== */
+
+:root {
+    --bg-pink: #fdf2f8;
+    --bg-lavender: #faf5ff;
+    --card-bg: #ffffff;
+    --primary-pink: #f472b6;
+    --primary-purple: #a855f7;
+    --text-main: #3b0764;
+    --text-muted: #9333ea;
+    --border-color: #f3e8ff;
+    --shadow-soft: 0 10px 30px rgba(168, 85, 247, 0.12);
+    --shadow-card: 0 20px 50px rgba(167, 139, 250, 0.22), 0 8px 24px rgba(251, 207, 232, 0.35);
+    --shadow-sticker: 0 6px 16px rgba(120, 80, 160, 0.16), 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-lavender);
+    /* Cute stationery polka dot grid background */
+    background-image: 
+        radial-gradient(#e9d5ff 1.8px, transparent 1.8px),
+        radial-gradient(#fbcfe8 1.8px, transparent 1.8px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 36px 20px 80px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===================================================
+   🎀 FLOATING STICKERS AROUND THE PAGE 🎀
+   =================================================== */
+
+/* Top-Left Sticker: Bunny & Star */
+body::before {
+    content: '🐰 ⭐';
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    font-size: 36px;
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 3.5px solid #ffffff;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sticker);
+    transform: rotate(-14deg);
+    z-index: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(236, 72, 153, 0.2));
+    animation: floatSticker1 4.5s ease-in-out infinite;
+}
+
+/* Bottom-Right Sticker: Strawberry & Ribbon */
+body::after {
+    content: '🍓 🎀';
+    position: fixed;
+    bottom: 35px;
+    right: 45px;
+    font-size: 36px;
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 3.5px solid #ffffff;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sticker);
+    transform: rotate(12deg);
+    z-index: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(168, 85, 247, 0.2));
+    animation: floatSticker2 5s ease-in-out infinite;
+}
+
+/* Top-Right Sticker: Sparkle Heart */
+html::before {
+    content: '✨ 💖';
+    position: fixed;
+    top: 35px;
+    right: 45px;
+    font-size: 34px;
+    padding: 6px 14px;
+    background: #ffffff;
+    border: 3.5px solid #ffffff;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sticker);
+    transform: rotate(14deg);
+    z-index: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(236, 72, 153, 0.2));
+    animation: floatSticker2 4.2s ease-in-out infinite;
+}
+
+/* Bottom-Left Sticker: Teddy Bear & Blossom */
+html::after {
+    content: '🧸 🌸';
+    position: fixed;
+    bottom: 40px;
+    left: 45px;
+    font-size: 34px;
+    padding: 6px 14px;
+    background: #ffffff;
+    border: 3.5px solid #ffffff;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sticker);
+    transform: rotate(-10deg);
+    z-index: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(168, 85, 247, 0.2));
+    animation: floatSticker1 5.2s ease-in-out infinite;
+}
+
+@keyframes floatSticker1 {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-10px) rotate(-8deg); }
+}
+
+@keyframes floatSticker2 {
+    0%, 100% { transform: translateY(0) rotate(12deg); }
+    50% { transform: translateY(-10px) rotate(16deg); }
+}
+
+/* ===================================================
+   🌸 TITLE - KAWAII STICKER BADGE 🌸
+   =================================================== */
+
+.title {
+    font-family: 'Fredoka', 'Quicksand', cursive, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    background: #ffffff;
+    border: 4px solid #ffffff;
+    border-radius: 999px;
+    padding: 12px 36px;
+    margin: 15px auto 14px auto;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 12px 28px rgba(147, 51, 234, 0.15), 0 4px 10px rgba(244, 114, 182, 0.25);
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    cursor: default;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* Flower sticker on the left of title */
+.title::before {
+    content: '🌸';
+    font-size: 1.8rem;
+    display: inline-block;
+    filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+    animation: wiggle 3s ease-in-out infinite;
+}
+
+/* Sparkle sticker on the right of title */
+.title::after {
+    content: '✨';
+    font-size: 1.6rem;
+    display: inline-block;
+    filter: drop-shadow(0 2px 4px rgba(168, 85, 247, 0.3));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.title:hover {
+    transform: rotate(0deg) scale(1.04);
+    box-shadow: 0 16px 36px rgba(147, 51, 234, 0.22), 0 6px 14px rgba(244, 114, 182, 0.35);
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ===================================================
+   📌 TASK COUNTER - CUTE TAG STICKER 📌
+   =================================================== */
+
+#count {
+    font-family: 'Fredoka', 'Quicksand', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #b45309;
+    background: #fef9c3;
+    border: 3px solid #ffffff;
+    border-radius: 999px;
+    padding: 8px 24px;
+    margin: 0 auto 26px auto;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(202, 138, 4, 0.18);
+    transform: rotate(1.5deg);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Star sticker on counter */
+#count::before {
+    content: '⭐';
+    font-size: 17px;
+    display: inline-block;
+}
+
+#count:hover {
+    transform: rotate(0deg) scale(1.08);
+}
+
+/* ===================================================
+   💌 MAIN CARD CONTAINER (#list) - SCRAPBOOK BOARD 💌
+   =================================================== */
+
+#list {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 44px 30px 36px;
+    background: var(--card-bg);
+    border: 4px solid #ffffff;
+    border-radius: 36px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+#list:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 60px rgba(167, 139, 250, 0.28), 0 12px 28px rgba(251, 207, 232, 0.45);
+}
+
+/* Washi Tape Sticker at the top of the card */
+#list::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1.5deg);
+    width: 150px;
+    height: 30px;
+    background: repeating-linear-gradient(
+        -45deg,
+        rgba(255, 182, 193, 0.85),
+        rgba(255, 182, 193, 0.85) 10px,
+        rgba(255, 218, 224, 0.85) 10px,
+        rgba(255, 218, 224, 0.85) 20px
+    );
+    border-left: 3px dashed rgba(244, 114, 182, 0.6);
+    border-right: 3px dashed rgba(244, 114, 182, 0.6);
+    border-radius: 3px;
+    box-shadow: 0 3px 8px rgba(190, 120, 160, 0.25);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Cute Mascot Kitty Sticker at the bottom corner of the card */
+#list::after {
+    content: '🐾 🐱';
+    position: absolute;
+    bottom: -18px;
+    right: -14px;
+    font-size: 26px;
+    background: #ffffff;
+    padding: 4px 12px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sticker);
+    border: 3.5px solid #ffffff;
+    transform: rotate(10deg);
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    user-select: none;
+}
+
+#list::after:hover {
+    transform: rotate(-5deg) scale(1.2);
+}
+
+/* ===================================================
+   ✏️ INPUT FIELD (.inpt) ✏️
+   =================================================== */
+
+.inpt {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    background-color: #faf5ff;
+    border: 2.5px solid #e9d5ff;
+    border-radius: 22px;
+    outline: none;
+    transition: all 0.25s ease;
+    box-shadow: inset 0 2px 4px rgba(168, 85, 247, 0.05);
+}
+
+.inpt::placeholder {
+    color: #c084fc;
+    font-weight: 500;
+}
+
+.inpt:focus {
+    background-color: #ffffff;
+    border-color: #c084fc;
+    box-shadow: 0 0 0 4px rgba(216, 180, 254, 0.35), inset 0 2px 4px rgba(0, 0, 0, 0.02);
+    transform: translateY(-2px);
+}
+
+/* ===================================================
+   💖 ADD TASK BUTTON (.btn) 💖
+   =================================================== */
+
+.btn {
+    width: 100%;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #f472b6 0%, #a855f7 100%);
+    color: #ffffff;
+    font-family: 'Fredoka', 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.32);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Cute Sparkle Sticker inside the Button */
+.btn::after {
+    content: '✨';
+    font-size: 16px;
+    transition: transform 0.25s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ec4899 0%, #9333ea 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(236, 72, 153, 0.42);
+}
+
+.btn:hover::after {
+    transform: rotate(45deg) scale(1.2);
+}
+
+.btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* ===================================================
+   📝 TODO LIST ITEMS & CHECKBOXES (.todo & li) 📝
+   =================================================== */
+
+.todo {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Empty State Message when no tasks */
+.todo:empty::after {
+    content: '🧁 No tasks yet! Add one above ✨';
+    display: block;
+    text-align: center;
+    padding: 24px 16px;
+    font-family: 'Fredoka', 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #c084fc;
+    background: #faf5ff;
+    border: 2px dashed #e9d5ff;
+    border-radius: 20px;
+}
+
+/* Each Task item - Styled like a cute sticker strip */
+.todo li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #faf5ff;
+    border: 2px solid #f3e8ff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.06);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    word-break: break-word;
+    animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.todo li:hover {
+    transform: translateY(-2px) scale(1.01);
+    border-color: #d8b4fe;
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(168, 85, 247, 0.15);
+}
+
+/* Completed task styling */
+.todo li[style*="line-through"] {
+    opacity: 0.65;
+    background: #f5f0fa;
+    border-color: #e5daf3;
+}
+
+/* Cute Custom Checkbox */
+.todo li input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2.5px solid #d8b4fe;
+    border-radius: 8px;
+    background: #ffffff;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    outline: none;
+}
+
+.todo li input[type="checkbox"]:hover {
+    border-color: #ec4899;
+    transform: scale(1.1);
+}
+
+.todo li input[type="checkbox"]:checked {
+    background: #ec4899;
+    border-color: #ec4899;
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.35);
+    transform: scale(1.05);
+}
+
+.todo li input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+/* Delete Button on Task Item - Cute Strawberry Pill */
+.todo li button {
+    margin-left: auto;
+    background: #ffe4e6;
+    color: #e11d48;
+    border: 2px solid #fecdd3;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-family: 'Fredoka', 'Quicksand', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.todo li button:hover {
+    background: #e11d48;
+    color: #ffffff;
+    border-color: #e11d48;
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+}
+
+.todo li button:active {
+    transform: scale(0.95);
+}
+
+/* ===================================================
+   🍭 CUSTOM SCROLLBAR 🍭
+   =================================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #faf5ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d8b4fe;
+    border-radius: 10px;
+    border: 2px solid #faf5ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c084fc;
+}
+
+/* ===================================================
+   📱 RESPONSIVE ADJUSTMENTS 📱
+   =================================================== */
+
+@media (max-width: 768px) {
+    body::before,
+    body::after,
+    html::before,
+    html::after {
+        display: none;
+    }
+
+    #list {
+        padding: 38px 20px 28px;
+        border-radius: 28px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        padding: 10px 24px;
+    }
+}
